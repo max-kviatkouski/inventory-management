@@ -6,6 +6,7 @@ export default {
     orders: 'Orders',
     finance: 'Finance',
     demandForecast: 'Demand Forecast',
+    restocking: 'Restocking',
     companyName: 'Catalyst Components',
     subtitle: 'Inventory Management System'
   },
@@ -106,6 +107,7 @@ export default {
     title: 'Orders',
     description: 'View and manage customer orders',
     allOrders: 'All Orders',
+    submittedOrders: 'Submitted Orders',
     totalOrders: 'Total Orders',
     totalRevenue: 'Total Revenue',
     avgOrderValue: 'Avg Order Value',
@@ -125,7 +127,38 @@ export default {
       totalValue: 'Total Value',
       status: 'Status',
       expectedDelivery: 'Expected Delivery',
-      actualDelivery: 'Actual Delivery'
+      actualDelivery: 'Actual Delivery',
+      leadTime: 'Lead Time'
+    }
+  },
+
+  // Restocking
+  restocking: {
+    title: 'Restocking',
+    description: 'Set a budget and order recommended restock items from the demand forecast',
+    budget: 'Available Budget',
+    budgetHint: 'Drag to set how much you can spend on restocking',
+    recommendations: 'Recommended Items',
+    recommendationsHint: 'Items with growing demand, prioritized by the largest gap and fit to your budget',
+    selectedSummary: '{count} items selected · {cost} of {budget}',
+    placeOrder: 'Place Order',
+    placing: 'Placing order...',
+    noRecommendations: 'No items fit the current budget. Increase the budget to see recommendations.',
+    submittedSuccess: 'Restocking order {orderNumber} submitted. View it in the Orders tab.',
+    error: 'Failed to load restocking recommendations',
+    submitError: 'Failed to place restocking order',
+    days: 'days',
+    inBudgetBadge: 'In Budget',
+    overBudgetBadge: 'Over Budget',
+    table: {
+      sku: 'SKU',
+      itemName: 'Item Name',
+      currentDemand: 'Current Demand',
+      forecastedDemand: 'Forecasted Demand',
+      quantity: 'Order Qty',
+      unitCost: 'Unit Cost',
+      lineCost: 'Line Cost',
+      status: 'Status'
     }
   },
 
@@ -204,6 +237,7 @@ export default {
     shipped: 'Shipped',
     processing: 'Processing',
     backordered: 'Backordered',
+    submitted: 'Submitted',
     inStock: 'In Stock',
     lowStock: 'Low Stock',
     adequate: 'Adequate'

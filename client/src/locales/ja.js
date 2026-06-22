@@ -6,6 +6,7 @@ export default {
     orders: '注文',
     finance: '財務',
     demandForecast: '需要予測',
+    restocking: '再入荷',
     companyName: '触媒コンポーネンツ',
     subtitle: '在庫管理システム'
   },
@@ -106,6 +107,7 @@ export default {
     title: '注文',
     description: '顧客注文の表示と管理',
     allOrders: 'すべての注文',
+    submittedOrders: '送信済み注文',
     totalOrders: '総注文数',
     totalRevenue: '総収益',
     avgOrderValue: '平均注文額',
@@ -125,7 +127,38 @@ export default {
       totalValue: '合計金額',
       status: 'ステータス',
       expectedDelivery: '予定配達日',
-      actualDelivery: '実際の配達日'
+      actualDelivery: '実際の配達日',
+      leadTime: 'リードタイム'
+    }
+  },
+
+  // Restocking
+  restocking: {
+    title: '再入荷',
+    description: '予算を設定し、需要予測から推奨される再入荷品目を注文します',
+    budget: '利用可能予算',
+    budgetHint: 'スライダーをドラッグして再入荷に使える金額を設定します',
+    recommendations: '推奨品目',
+    recommendationsHint: '需要が増加している品目を、不足の大きい順に予算内で選定します',
+    selectedSummary: '{count}件選択 · {cost} / {budget}',
+    placeOrder: '注文する',
+    placing: '注文を送信中...',
+    noRecommendations: '現在の予算に収まる品目がありません。予算を増やすと推奨品目が表示されます。',
+    submittedSuccess: '再入荷注文 {orderNumber} を送信しました。注文タブで確認できます。',
+    error: '再入荷の推奨品目の読み込みに失敗しました',
+    submitError: '再入荷注文の送信に失敗しました',
+    days: '日',
+    inBudgetBadge: '予算内',
+    overBudgetBadge: '予算超過',
+    table: {
+      sku: 'SKU',
+      itemName: '品目名',
+      currentDemand: '現在の需要',
+      forecastedDemand: '予測需要',
+      quantity: '注文数量',
+      unitCost: '単価',
+      lineCost: '小計',
+      status: 'ステータス'
     }
   },
 
@@ -204,6 +237,7 @@ export default {
     shipped: '出荷済み',
     processing: '処理中',
     backordered: 'バックオーダー',
+    submitted: '送信済み',
     inStock: '在庫あり',
     lowStock: '在庫僅少',
     adequate: '適量'
