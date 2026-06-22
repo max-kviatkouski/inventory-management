@@ -210,7 +210,7 @@
                   </td>
                   <td>
                     <button
-                      v-if="!item.purchase_order_id"
+                      v-if="!hasPurchaseOrder(item)"
                       @click.stop="openPOModal(item)"
                       class="po-button create"
                     >
@@ -304,12 +304,14 @@ import { useI18n } from '../composables/useI18n'
 import { formatCurrency } from '../utils/currency'
 import ProductDetailModal from '../components/ProductDetailModal.vue'
 import BacklogDetailModal from '../components/BacklogDetailModal.vue'
+import PurchaseOrderModal from '../components/PurchaseOrderModal.vue'
 
 export default {
   name: 'Dashboard',
   components: {
     ProductDetailModal,
     BacklogDetailModal,
+    PurchaseOrderModal,
   },
   setup() {
     const { t, currentCurrency, translateProductName, translateWarehouse } = useI18n()
@@ -662,6 +664,11 @@ export default {
       showPOModal.value = true
     }
 
+    // Returns true if a PO exists for this backlog item.
+    // item.has_purchase_order comes from the API and survives page reloads (backend-persisted).
+    // item.purchase_order_id is set locally by handlePOCreated immediately after creation in the current session.
+    const hasPurchaseOrder = (item) => !!(item.purchase_order_id || item.has_purchase_order)
+
     const handlePOCreated = (poData) => {
       // Update the backlog item with the new PO ID
       const item = allBacklogItems.value.find(b => b.id === poData.backlog_item_id)
@@ -720,7 +727,8 @@ export default {
       poModalMode,
       openPOModal,
       viewPO,
-      handlePOCreated
+      handlePOCreated,
+      hasPurchaseOrder
     }
   }
 }
